@@ -1,0 +1,20 @@
+News
+ZBOSS Sniffer release.
+DSR presents ZBOSS sniffer - open source cross-platform ZigBee packet sniffer.
+
+Product info (short)
+ZBOSS Sniffer - open source cross-platform ZigBee packet sniffer. [Read more]
+
+Product info (long)
+ZBOSS Sniffer - open source cross-platform ZigBee packet sniffer.
+On the hardware side sniffer is developed for TI SmartRf05EB and CC2531 USB Dongle. Packets are sent to PC via RS-232 interface
+when using board and via usb when using dongle (virtual serial port is emulated). Sniffer for hardware is provided in two forms:
+1) ready-to-use images for SmartRf05Eb and CC2531 USB Dongle;
+2) sniffer can be compiled from ZBOSS sources using ZB_SNIFFER define (special IAR project is included into sources). 
+On the PC side, cross-platform Qt application is running, receiving packets from the hardware and providing them to Wireshark
+via local socket. Also sniffer application manages Wireshark itself (start, connect and disconnect). Wireshark controls are available 
+for sniffer managing too.
+We provide two binary packets with ZBOSS Sniffer ready to use out-of-the-box: on Windows XP/Vista/7 and on Ubuntu 12.04 - 13.10 
+(other options with these OS weren't tested). In addition, sniffer can be compiled from sources with Qt.      
+For use with ZBOSS sniffer plain Wireshark downloaded from official site suits. Also patched Wireshark provided by DSR can be used to
+recognize more packet types.

@@ -1,0 +1,187 @@
+C51 COMPILER V9.01   MAIN                                                                  11/18/2010 13:43:46 PAGE 1   
+
+
+C51 COMPILER V9.01, COMPILATION OF MODULE MAIN
+OBJECT MODULE PLACED IN main.OBJ
+COMPILER INVOKED BY: C:\Keil\C51\BIN\C51.EXE main.c LARGE OPTIMIZE(0,SPEED) BROWSE DEBUG OBJECTEXTEND TABS(2)
+
+line level    source
+
+   1          #pragma OT(0);
+   2          #include "C:\KEIL\C51\INC\CYGNAL\C8051F120.H"
+   3          sbit LED1 = P3^0;   
+   4          sbit LED2 = P3^1;
+   5          typedef unsigned char      zb_uint8_t;
+   6          
+   7          #define ZB_CODE_MEM ((zb_uint8_t code *)0x00)
+   8          #define ZB_XDATA_MEM ((zb_uint8_t xdata *)0x00)
+   9          
+  10          void _init(void)
+  11          {
+  12   1          WDTCN = 0xDE;  
+  13   1          WDTCN = 0xAD;
+  14   1          SFRPAGE = 0xf;
+  15   1          OSCICN = 0x83; 
+  16   1          while(!(OSCICN & 0x40));
+  17   1          XBR0 = 0x06;
+  18   1          XBR1 = 0x19; 
+  19   1          XBR2 = 0x44; 
+  20   1          P0MDOUT = 0x34; 
+  21   1          P1MDOUT = 0xFF;
+  22   1          P2MDOUT = 0xEF;
+  23   1          P3MDOUT = 0xFF;
+  24   1          SFRPAGE = 0x0;
+  25   1      
+  26   1      }
+  27          
+  28          
+  29          void zb_flash_init()
+  30          {
+  31   1        /* for deubg purpose only 
+  32   1        RSTSRC = 0x02;
+  33   1        */
+  34   1      }
+  35          /* Erasing nvram 
+  36          Step 1. Disable interrupts.
+  37          Step 2. If erasing a page in Bank 1, Bank 2, or Bank 3, set the COBANK bits (PSBANK.5-4) for 
+  38          the appropriate bank.
+  39          Step 3. If erasing a page in the Scratchpad area, set the SFLE bit (PSCTL.2).
+  40          Step 4. Set FLWE (FLSCL.0) to enable Flash writes/erases via user software.
+  41          Step 5. Set PSEE (PSCTL.1) to enable Flash erases.
+  42          Step 6. Set PSWE (PSCTL.0) to redirect MOVX commands to write to Flash.
+  43          Step 7. Use the MOVX instruction to write a data byte to any location within the page to be 
+  44          erased.
+  45          Step 8. Clear PSEE to disable Flash erases.
+  46          Step 9. Clear the PSWE bit to redirect MOVX commands to the XRAM data space.
+  47          Step 10. Clear the FLWE bit, to disable Flash writes/erases.
+  48          Step 11. If erasing a page in the Scratchpad area, clear the SFLE bit.
+  49          Step 12. Re-enable interrupts. */
+  50          
+  51          void zb_erase_nvram()
+  52          {
+  53   1       
+  54   1          FLSCL |= 0x01;                      /* enable FLASH write/erase */
+  55   1          PSCTL |= 0x03;                      /* enable erasing FLASH */
+C51 COMPILER V9.01   MAIN                                                                  11/18/2010 13:43:46 PAGE 2   
+
+  56   1          PSCTL |= 0x04;                      /* redirect erasing FLASH to scratchpad FLASH */
+  57   1      
+  58   1          /* writing anywhere initiates erase of the whole page, scratch pad pages are 128 instead of 256 bytes 
+             -   */
+  59   1          //ptr_flash_scratchpad[0x00] = 0x00;      
+  60   1          ZB_XDATA_MEM[0] = 0x00;
+  61   1          //ptr_flash_scratchpad[0] = 0x00;          
+  62   1          ZB_XDATA_MEM[129] = 0x00;
+  63   1          PSCTL &= ~0x07; /* set PSWE = PSEE = SFLE = 0 to disable all access to scratchpad FLASH in place of xd
+             -ata*/
+  64   1          FLSCL &= ~0x01; /* disable FLASH write/erase */  
+  65   1      }
+  66          
+  67          /*  writing nvram
+  68          Step 1. Disable interrupts.
+  69          Step 2. Clear CHBLKW (CCH0CN.0) to select single-byte write mode.
+  70          Step 3. If writing to bytes in Bank 1, Bank 2, or Bank 3, set the COBANK bits (PSBANK.5-4) f
+  71          the appropriate bank.
+  72          Step 4. If writing to bytes in the Scratchpad area, set the SFLE bit (PSCTL.2).
+  73          Step 5. Set FLWE (FLSCL.0) to enable Flash writes/erases via user software.
+  74          Step 6. Set PSWE (PSCTL.0) to redirect MOVX commands to write to Flash.
+  75          Step 7. Use the MOVX instruction to write a data byte to the desired location (repeat as 
+  76          necessary).
+  77          Step 8. Clear the PSWE bit to redirect MOVX commands to the XRAM data space.
+  78          Step 9. Clear the FLWE bit, to disable Flash writes/erases.
+  79          Step 10. If writing to bytes in the Scratchpad area, clear the SFLE bit.
+  80          Step 11. Re-enable interrupts. */
+  81          
+  82          
+  83          void zb_write_nvram(zb_uint8_t pos, zb_uint8_t *buf, zb_uint8_t len )
+  84          { 
+  85   1          zb_uint8_t data i;
+  86   1          FLSCL |= 0x01;                      /* enable FLASH write/erase */
+  87   1          PSCTL |= 0x01;                      /* enable writing to FLASH in place of xdata */
+  88   1          PSCTL |= 0x04;                      /* enable writing to scratchpad FLASH instead of to FLASH */
+  89   1      
+  90   1          for (i=0;i<len;i++)
+  91   1          {
+  92   2            ZB_XDATA_MEM[pos+i]=buf[i];
+  93   2          }
+  94   1          
+  95   1          PSCTL &= ~0x05;                     /* disable writing to scratchpad or regular FLASH in place of xdat
+             -a */
+  96   1          FLSCL &= ~0x01;                     /* disable FLASH write/erase */
+  97   1      }
+  98          
+  99          void zb_read_nvram(zb_uint8_t pos, zb_uint8_t *buf, zb_uint8_t len)
+ 100          {
+ 101   1          zb_uint8_t data i;
+ 102   1          PSCTL |= 0x04;                      /* enable reading from the scratchpad FLASH instead of from FLASH 
+             -*/
+ 103   1          for (i=0; i<len; ++i)
+ 104   1          {
+ 105   2              buf[i]=ZB_CODE_MEM[pos+i];
+ 106   2          }
+ 107   1          PSCTL &= ~0x04;                     /* disable reading from the scratchpad FLASH instead of from FLASH
+             -  */
+ 108   1      
+ 109   1      }
+ 110          
+ 111          
+ 112          
+C51 COMPILER V9.01   MAIN                                                                  11/18/2010 13:43:46 PAGE 3   
+
+ 113          
+ 114          typedef struct qwe
+ 115          {
+ 116            int a;
+ 117            int b;
+ 118            int c;
+ 119          } test_s ;
+ 120          
+ 121          
+ 122          void main()
+ 123          {  
+ 124   1        int i = 0;
+ 125   1        test_s test;
+ 126   1      
+ 127   1        
+ 128   1        _init();
+ 129   1         WDTCN = 0xde;
+ 130   1         WDTCN = 0xad;
+ 131   1         zb_read_nvram(0, (zb_uint8_t *) &test, sizeof(test));
+ 132   1         if (test.a == 1 && test.b == 2 && test.c == 3)
+ 133   1         {
+ 134   2          LED1 = 0;
+ 135   2         }     
+ 136   1         else 
+ 137   1         {
+ 138   2          test.a = 1;
+ 139   2          test.b = 2;
+ 140   2          test.c = 3;
+ 141   2        
+ 142   2          zb_flash_init();
+ 143   2          zb_erase_nvram();
+ 144   2          zb_write_nvram(0,(zb_uint8_t *) &test, sizeof(test)); 
+ 145   2          LED2 = 0;
+ 146   2         }
+ 147   1       
+ 148   1      while (1) {
+ 149   2        zb_flash_init();     
+ 150   2      }
+ 151   1      
+ 152   1      }
+ 153          
+ 154          
+ 155          
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =    393    ----
+   CONSTANT SIZE    =   ----    ----
+   XDATA SIZE       =     18    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =      2    ----
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)

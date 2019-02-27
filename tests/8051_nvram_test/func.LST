@@ -1,0 +1,180 @@
+C51 COMPILER V9.01   FUNC                                                                  11/16/2010 13:54:47 PAGE 1   
+
+
+C51 COMPILER V9.01, COMPILATION OF MODULE FUNC
+OBJECT MODULE PLACED IN func.OBJ
+COMPILER INVOKED BY: C:\Keil\C51\BIN\C51.EXE func.c LARGE OPTIMIZE(0,SPEED) BROWSE DEBUG OBJECTEXTEND TABS(2)
+
+line level    source
+
+   1          #include "C:\KEIL\C51\INC\CYGNAL\C8051F120.H"
+   2          int function2();
+   3          
+   4          sbit LED1 = P3^0;
+   5          sbit LED2 = P3^1;
+   6          #define RET_OK 0
+   7          #define ZB_GET_UBEC_2400_INT() function2()
+   8          #define ZB_CHECK_INT_STATUS() function2()
+   9          #define MAC_STATE_FOR_LAYER  test[0]
+  10          typedef enum
+  11          {
+  12            ZB_MAC_STATE_IDLE = 0,
+  13            ZB_MAC_STATE_READREG_INTERRUPT_STATUS,
+  14            ZB_MAC_STATE_DATA_WAIT_FOR_XMIT,
+  15            ZB_MAC_STATE_DATA_WAIT_FOR_RECV,
+  16            ZB_MAC_STATE_WAIT_FOR_SPI_SEND_SHORTREAD_REG,
+  17            ZB_MAC_STATE_WAIT_FOR_SPI_RECV_SHORTREAD_REG,
+  18            ZB_MAC_STATE_WAIT_FOR_SPI_SEND_LONGREAD_REG,
+  19            ZB_MAC_STATE_WAIT_FOR_SPI_RECV_LONGREAD_REG,
+  20            ZB_MAC_STATE_WAIT_FOR_SPI_SEND_SHORTWRITE_REG,
+  21            ZB_MAC_STATE_WAIT_FOR_SPI_SEND_LONGWRITE_REG,
+  22            ZB_MAC_STATE_WAIT_FOR_SPI_FIFO_SEND,
+  23            ZB_MAC_STATE_MLME_START_WAIT_TXMCR,
+  24            ZB_MAC_STATE_MLME_START_WAIT_ORDER,
+  25            ZB_MAC_STATE_MLME_START_SUPER_FRAME_STEP1,
+  26            ZB_MAC_STATE_MLME_START, /* 14 */
+  27            ZB_MAC_STATE_DATA_FRAME,
+  28          
+  29            ZB_MAC_STATE_MLME_WAIT_REAILIGNMENT_SENT,
+  30            ZB_MAC_STATE_WAIT_CMD_TX_FINISH, /* 17 */
+  31            ZB_MAC_STATE_WAIT_CMD_TX_FINISH_2,
+  32            ZB_MAC_STATE_WAIT_CMD_TX_FINISH_3, /* 19 */
+  33            ZB_MAC_STATE_WAIT_SYNC_TIMER,
+  34            ZB_MAC_STATE_WAIT_ACK, /* 21 */
+  35            ZB_MAC_STATE_WAIT_INDIRECT_DATA,
+  36            ZB_MAC_STATE_WAIT_RESP,  /* 23 */
+  37            ZB_MAC_STATE_MLME_SCAN,
+  38            ZB_MAC_STATE_MLME_ASSOCIATE, /* 25 */
+  39            ZB_MAC_STATE_MLME_ASSOCIATE_RESPONSE,
+  40            ZB_MAC_STATE_DATA_REQUEST,
+  41            ZB_MAC_STATE_DATA_REQUEST_CMD,
+  42            ZB_MAC_STATE_ASS_REQUEST_CMD,
+  43          
+  44            /* state for MAC 3rd layer, i/o operations */
+  45            ZB_MAC_STATE_IO_ERROR,         /* 30 */
+  46            ZB_MAC_STATE_IO_RECV_PENDING,
+  47            ZB_MAC_STATE_IO_RECV_STARTED,  /* 32 */
+  48            ZB_MAC_STATE_IO_RECV_FINISHED
+  49          
+  50          } zb_mac_state_e;
+  51          
+  52          
+  53          
+  54          
+  55          
+C51 COMPILER V9.01   FUNC                                                                  11/16/2010 13:54:47 PAGE 2   
+
+  56          void function1(int i)
+  57          {
+  58   1        int test[3] = {11,0,3};
+  59   1        int ret = 0;
+  60   1        while( ret == 0)
+  61   1        {
+  62   2          /* vendor - specific action */
+  63   2          
+  64   2          switch( MAC_STATE_FOR_LAYER)
+  65   2          {
+  66   3            case ZB_MAC_STATE_IDLE:
+  67   3              ret = function2();
+  68   3              break;
+  69   3      
+  70   3            case ZB_MAC_STATE_DATA_WAIT_FOR_XMIT:
+  71   3              ret = function2();
+  72   3              break;
+  73   3      
+  74   3            case ZB_MAC_STATE_DATA_WAIT_FOR_RECV:
+  75   3              ret = function2();
+  76   3             break;
+  77   3      
+  78   3            case ZB_MAC_STATE_MLME_START:
+  79   3              ret = function2();
+  80   3            if (ret == RET_OK)
+  81   3            {
+  82   4              function2();
+  83   4            }
+  84   3      
+  85   3              break;
+  86   3      
+  87   3            case ZB_MAC_STATE_MLME_SCAN:
+  88   3              ret = function2();
+  89   3              break;
+  90   3      
+  91   3            case ZB_MAC_STATE_MLME_ASSOCIATE:
+  92   3              ret = function2();
+  93   3              break;
+  94   3      
+  95   3            case ZB_MAC_STATE_MLME_ASSOCIATE_RESPONSE:
+  96   3              ret = function2();
+  97   3              break;
+  98   3      
+  99   3            case ZB_MAC_STATE_DATA_REQUEST_CMD:
+ 100   3              function2();
+ 101   3              break;
+ 102   3      
+ 103   3            case ZB_MAC_STATE_ASS_REQUEST_CMD:
+ 104   3              function2();
+ 105   3              break;
+ 106   3           case ZB_MAC_STATE_IDLE+30:
+ 107   3              ret = function2();
+ 108   3              break;
+ 109   3      
+ 110   3            case ZB_MAC_STATE_DATA_WAIT_FOR_XMIT+30:
+ 111   3              ret = function2();
+ 112   3              break;
+ 113   3      
+ 114   3            case ZB_MAC_STATE_DATA_WAIT_FOR_RECV+30:
+ 115   3              ret = function2();
+ 116   3             break;
+ 117   3      
+C51 COMPILER V9.01   FUNC                                                                  11/16/2010 13:54:47 PAGE 3   
+
+ 118   3            case ZB_MAC_STATE_MLME_START+30:
+ 119   3              ret = function2();
+ 120   3            if (ret == RET_OK)
+ 121   3            {
+ 122   4              function2();
+ 123   4            }
+ 124   3      
+ 125   3              break;
+ 126   3      
+ 127   3            case ZB_MAC_STATE_MLME_SCAN+39:
+ 128   3              ret = function2();
+ 129   3              break;
+ 130   3      
+ 131   3            case ZB_MAC_STATE_MLME_ASSOCIATE+30:
+ 132   3              ret = function2();
+ 133   3              break;
+ 134   3      
+ 135   3            case ZB_MAC_STATE_MLME_ASSOCIATE_RESPONSE+30:
+ 136   3              ret = function2();
+ 137   3              break;
+ 138   3      
+ 139   3            case ZB_MAC_STATE_DATA_REQUEST_CMD+30:
+ 140   3              function2();
+ 141   3              break;
+ 142   3      
+ 143   3            case ZB_MAC_STATE_ASS_REQUEST_CMD+30:
+ 144   3              function2();
+ 145   3              break;
+ 146   3            default:
+ 147   3              ret = -1;
+ 148   3              break;
+ 149   3          } /* switch */
+ 150   2        }   /* while */
+ 151   1      
+ 152   1      }
+*** WARNING C280 IN LINE 56 OF FUNC.C: 'i': unreferenced local variable
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =    430    ----
+   CONSTANT SIZE    =      6    ----
+   XDATA SIZE       =     10    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =   ----    ----
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  1 WARNING(S),  0 ERROR(S)

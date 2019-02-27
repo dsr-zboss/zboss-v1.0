@@ -1,0 +1,7 @@
+<RCC>
+    <qresource prefix="/icons">
+        <file>icons.qrc</file>
+        <file>zboss_wo_text.png</file>
+        <file>update.png</file>
+    </qresource>
+</RCC>

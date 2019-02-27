@@ -1,0 +1,30 @@
+C51 COMPILER V9.01   FUNC2                                                                 11/16/2010 13:54:47 PAGE 1   
+
+
+C51 COMPILER V9.01, COMPILATION OF MODULE FUNC2
+OBJECT MODULE PLACED IN func2.OBJ
+COMPILER INVOKED BY: C:\Keil\C51\BIN\C51.EXE func2.c LARGE OPTIMIZE(0,SPEED) BROWSE DEBUG OBJECTEXTEND TABS(2)
+
+line level    source
+
+   1          #include "C:\KEIL\C51\INC\CYGNAL\C8051F120.H"
+   2          sbit LED2 = P3^1;
+   3          int function2()
+   4          {
+   5   1        LED2 = 0;
+   6   1        return 0;
+   7   1      }
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =      8    ----
+   CONSTANT SIZE    =   ----    ----
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =   ----    ----
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)

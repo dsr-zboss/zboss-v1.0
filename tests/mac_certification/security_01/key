@@ -1,0 +1,19 @@
+Setup Wireshark to decrypt MAC frames:
+
+Edit-Preferences-Protocols-IEEE 802.15.4
+
+Set Decryption key:
+c1c0:c3c2:c5c4:c7c6:c9c8:cbca:cdcc:cfce
+
+
+c0:c1:c2:c3:c4:c5:c6:c7:c8:c9:ca:cb:cd:cc:ce:cf
+
+Add 2 Static addresses:
+1)
+Short            1122
+PAN Identifier   1AAA
+EUI-64           ACDE480000000001
+2)
+Short            3344
+PAN Identifier   1AAA
+EUI-64           ACDE480000000002

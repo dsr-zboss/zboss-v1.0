@@ -1,0 +1,12 @@
+ZBOSS Sniffer sources archive contains sources of two sniffer parts: hardware and PC GUI.
+
+GUI sources are lying under "gui" folder and provided with Qt Creator project. GUI was developed with qt5 library.
+Notice, that to build gui you need "qtserialport" installed. It could be found in "Addons" tab when installing Qt
+using Qt GUI Installer.
+
+Hardware sources are in "hw" folder. To work with them they should be placed in the stack/devtools/sniffer folder in 
+ZBOSS stack (stack already contains support for ZBOSS Sniffer). ZBOSS Stack can be found here:
+http://zboss.dsr-wireless.com/downloads/index/zboss
+
+Hardware sources are provided with IAR project which should be placed under ZBOSS stack root directory and
+added to the ZBOSS IAR workspace (provided with ZBOSS stack).

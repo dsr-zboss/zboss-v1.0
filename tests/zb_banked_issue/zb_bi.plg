@@ -1,0 +1,68 @@
+<html>
+<body>
+<pre>
+<h1>µVision Build Log</h1>
+<h2>Project:</h2>
+C:\_devel\_tmp\zb_banked_issue\zb_bi.uvproj
+Project File Date:  10/04/2010
+
+<h2>Output:</h2>
+Build target 'Target 1'
+compiling main.c...
+linking...
+Program Size: data=9.0 xdata=2 code=281
+"zb_bi" - 0 Error(s), 0 Warning(s).
+Build target 'Target 1'
+linking...
+Program Size: data=9.0 xdata=2 code=281
+"zb_bi" - 0 Error(s), 0 Warning(s).
+Load "C:\\_devel\\_tmp\\zb_banked_issue\\zb_bi" 
+Flash Erase Done.
+Flash Image Update Complete. 
+Beginning programming...
+Flash Program Done: 275 bytes programmed.
+Checksum:0x7a54
+Flash Verify Done: 275 bytes verified.
+Build target 'Target 1'
+linking...
+Program Size: data=9.0 xdata=2 code=281
+"zb_bi" - 0 Error(s), 0 Warning(s).
+Load "C:\\_devel\\_tmp\\zb_banked_issue\\zb_bi" 
+Flash Erase Done.
+Flash Image Update Complete. 
+Beginning programming...
+Flash Program Done: 275 bytes programmed.
+Checksum:0x7a54
+Flash Verify Done: 275 bytes verified.
+Build target 'Target 1'
+compiling main.c...
+linking...
+Program Size: data=9.0 xdata=2 code=289
+"zb_bi" - 0 Error(s), 0 Warning(s).
+Load "C:\\_devel\\_tmp\\zb_banked_issue\\zb_bi" 
+Flash Erase Done.
+Flash Image Update Complete. 
+Beginning programming...
+Flash Program Done: 283 bytes programmed.
+Checksum:0x7ca7
+Flash Verify Done: 283 bytes verified.
+Build target 'Target 1'
+compiling main.c...
+linking...
+Program Size: data=9.0 xdata=2 code=289
+"zb_bi" - 0 Error(s), 0 Warning(s).
+Build target 'Target 1'
+compiling main.c...
+linking...
+Program Size: data=9.0 xdata=2 code=289
+"zb_bi" - 0 Error(s), 0 Warning(s).
+Build target 'Target 1'
+compiling main.c...
+linking...
+Program Size: data=9.0 xdata=2 code=289
+"zb_bi" - 0 Error(s), 0 Warning(s).
+Build target 'Target 1'
+compiling main.c...
+linking...
+Program Size: data=9.0 xdata=2 code=289
+"zb_bi" - 0 Error(s), 0 Warning(s).

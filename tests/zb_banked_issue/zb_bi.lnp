@@ -1,0 +1,10 @@
+COMMON {"STARTUP.obj"},
+COMMON {".\L51_BANK.obj"},
+COMMON {"main.obj"},
+BANK1 {"func.obj"},
+BANK2 {"func2.obj"} 
+TO "zb_bi" BankArea(0x0000,0xFFFF) 
+RAMSIZE(256) 
+
+
+XDATA( 0X0000-0X1FFF )

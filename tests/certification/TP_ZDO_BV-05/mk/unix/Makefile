@@ -1,0 +1,28 @@
+# PURPOSE: Trivial NWK test makefile
+# */
+
+BUILD_HOME=../../..
+include $(BUILD_HOME)/Options
+
+SRCS1 = TP_ZDO_BV_05_DUTZC.c
+OBJS1 = ${SRCS1:.c=.o}
+
+SRCS2 = TP_ZDO_BV_05_ZED1.c
+OBJS2 = ${SRCS2:.c=.o}
+
+SRCS3 = TP_ZDO_BV_05_ZED2.c
+OBJS3 = ${SRCS3:.c=.o}
+
+$(BIN)TP_ZDO_BV_05_DUTZC$(EXE) : $(OBJS1)  $(LIBS)
+	$(LINK_BINARY)
+
+$(BIN)TP_ZDO_BV_05_ZED1$(EXE) : $(OBJS2)  $(LIBS)
+	$(LINK_BINARY)
+
+$(BIN)TP_ZDO_BV_05_ZED2$(EXE) : $(OBJS3)  $(LIBS)
+	$(LINK_BINARY)
+
+
+BINS = $(BIN)TP_ZDO_BV_05_DUTZC$(EXE) $(BIN)TP_ZDO_BV_05_ZED1$(EXE) $(BIN)TP_ZDO_BV_05_ZED2$(EXE)
+
+all: $(BINS)

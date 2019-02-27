@@ -1,0 +1,1 @@
+same test as association_06, but devices are reverted.

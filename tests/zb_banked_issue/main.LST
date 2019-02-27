@@ -1,0 +1,59 @@
+C51 COMPILER V9.01   MAIN                                                                  10/04/2010 21:49:39 PAGE 1   
+
+
+C51 COMPILER V9.01, COMPILATION OF MODULE MAIN
+OBJECT MODULE PLACED IN main.OBJ
+COMPILER INVOKED BY: C:\Keil\C51\BIN\C51.EXE main.c LARGE OPTIMIZE(0,SPEED) BROWSE DEBUG OBJECTEXTEND
+
+line level    source
+
+   1          void function1(int i);
+   2          #include "C:\KEIL\C51\INC\CYGNAL\C8051F120.H"
+   3          
+   4          
+   5          
+   6          #pragma OT(0);
+   7          
+   8          void _init(void)
+   9          {
+  10   1          WDTCN = 0xDE;  
+  11   1          WDTCN = 0xAD;
+  12   1          SFRPAGE = 0xf;
+  13   1          OSCICN = 0x83; 
+  14   1          while(!(OSCICN & 0x40));
+  15   1          XBR0 = 0xf7;//reconfigure (for ex. to 0x06)
+  16   1          XBR1 = 0x19; 
+  17   1          XBR2 = 0x44; 
+  18   1          P0MDOUT = 0x34; 
+  19   1          P1MDOUT = 0xFF;
+  20   1          P2MDOUT = 0xEF;
+  21   1          P3MDOUT = 0xFF;
+  22   1          SFRPAGE = 0x0;
+  23   1      
+  24   1      }
+  25          
+  26          
+  27          void main()
+  28          {
+  29   1              _init();
+  30   1          function1(1);
+  31   1              function1(2);
+  32   1              function1(1);
+  33   1      }
+  34          
+  35          
+  36          
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =     67    ----
+   CONSTANT SIZE    =   ----    ----
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =   ----    ----
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)

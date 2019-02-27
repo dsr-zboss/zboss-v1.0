@@ -1,0 +1,8 @@
+"STARTUP.obj",
+".\L51_BANK.obj",
+"main.obj" 
+TO "zb_bi" 
+RAMSIZE(256) 
+
+
+XDATA( 0X0000-0X1FFF )

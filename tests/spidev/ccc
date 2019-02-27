@@ -1,0 +1,2 @@
+sudo cp spidev_test /srv/tftp/rootfs/root
+sudo cp /home/zheka/zbarm/linux-2.6.31/arch/arm/boot/zImage /srv/tftp

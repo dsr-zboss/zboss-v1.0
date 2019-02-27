@@ -1,0 +1,257 @@
+BL51 BANKED LINKER/LOCATER V6.22                                                        10/04/2010  21:49:39  PAGE 1
+
+
+BL51 BANKED LINKER/LOCATER V6.22, INVOKED BY:
+C:\KEIL\C51\BIN\BL51.EXE COMMON {STARTUP.obj}, COMMON {.\L51_BANK.obj}, COMMON {main.obj}, BANK1 {func.obj}, BANK2 {func
+>> 2.obj} TO zb_bi BANKAREA (0X0000, 0XFFFF) RAMSIZE (256) XDATA (0X0000-0X1FFF)
+
+
+MEMORY MODEL: LARGE
+
+
+INPUT MODULES INCLUDED:
+  STARTUP.obj (?C_STARTUP)
+  .\L51_BANK.obj (?BANK?SWITCHING)
+  main.obj (MAIN)
+  func.obj (FUNC)
+  func2.obj (FUNC2)
+  C:\KEIL\C51\LIB\C51L.LIB (?C?ICASE)
+
+
+LINK MAP OF MODULE:  zb_bi (?C_STARTUP)
+
+
+            TYPE    BASE      LENGTH    RELOCATION   SEGMENT NAME
+            -----------------------------------------------------
+
+            * * * * * * *   D A T A   M E M O R Y   * * * * * * *
+            REG     0000H     0008H     ABSOLUTE     "REG BANK 0"
+            IDATA   0008H     0001H     UNIT         ?STACK
+
+            * * * * * * *  X D A T A   M E M O R Y  * * * * * * *
+            XDATA   0000H     0002H     UNIT         ?XD?_FUNCTION1?FUNC
+
+            * * * * * * *   C O D E   M E M O R Y   * * * * * * *
+            CODE    0000H     0003H     ABSOLUTE     
+            CODE    0003H     005AH     INBLOCK      ?BANK?SELECT
+            CODE    005DH     002DH     UNIT         ?C?LIB_CODE
+            CODE    008AH     002AH     UNIT         ?PR?_INIT?MAIN
+            CODE    00B4H     0019H     UNIT         ?PR?MAIN?MAIN
+            CODE    00CDH     000CH     UNIT         ?C_C51STARTUP
+                    00D9H     0027H                  *** GAP ***
+            CODE    0100H     001CH     PAGE         ?BANK?SWITCH
+
+            * * * * * * *   C O D E   B A N K   1   * * * * * * *
+                    0000H     011CH                  *** GAP ***
+            BANK1   011CH     0029H     UNIT         ?PR?_FUNCTION1?FUNC
+
+            * * * * * * *   C O D E   B A N K   2   * * * * * * *
+                    0000H     00D9H                  *** GAP ***
+            BANK2   00D9H     0003H     UNIT         ?PR?FUNCTION2?FUNC2
+
+
+
+OVERLAY MAP OF MODULE:   zb_bi (?C_STARTUP)
+
+
+SEGMENT
+  +--> CALLED SEGMENT
+---------------------
+?C_C51STARTUP
+  +--> ?PR?MAIN?MAIN
+BL51 BANKED LINKER/LOCATER V6.22                                                      10/04/2010  21:49:39  PAGE 2
+
+
+
+?PR?MAIN?MAIN
+  +--> ?PR?_INIT?MAIN
+  +--> ?PR?_FUNCTION1?FUNC
+
+?PR?_FUNCTION1?FUNC
+  +--> ?PR?FUNCTION2?FUNC2
+
+
+
+INTERBANK CALL TABLE OF MODULE:  zb_bi (?C_STARTUP)
+
+ADDRESS    FUNCTION NAME
+------------------------
+ 0052H     _FUNCTION1
+ 0057H     FUNCTION2
+
+
+
+SYMBOL TABLE OF MODULE:  zb_bi (?C_STARTUP)
+
+  VALUE           TYPE          NAME
+  ----------------------------------
+
+  -------         MODULE        ?C_STARTUP
+  C:00CDH         SEGMENT       ?C_C51STARTUP
+  I:0008H         SEGMENT       ?STACK
+  C:0000H         PUBLIC        ?C_STARTUP
+  D:00E0H         SYMBOL        ACC
+  D:00F0H         SYMBOL        B
+  D:0083H         SYMBOL        DPH
+  D:0082H         SYMBOL        DPL
+  N:0000H         SYMBOL        IBPSTACK
+  N:0100H         SYMBOL        IBPSTACKTOP
+  N:0080H         SYMBOL        IDATALEN
+  C:00D0H         SYMBOL        IDATALOOP
+  N:0000H         SYMBOL        PBPSTACK
+  N:0100H         SYMBOL        PBPSTACKTOP
+  N:0000H         SYMBOL        PDATALEN
+  N:0000H         SYMBOL        PDATASTART
+  N:0000H         SYMBOL        PPAGE
+  N:0000H         SYMBOL        PPAGEENABLE
+  D:00A0H         SYMBOL        PPAGE_SFR
+  D:0081H         SYMBOL        SP
+  C:00CDH         SYMBOL        STARTUP1
+  N:0000H         SYMBOL        XBPSTACK
+  N:0000H         SYMBOL        XBPSTACKTOP
+  N:0000H         SYMBOL        XDATALEN
+  N:0000H         SYMBOL        XDATASTART
+  C:0000H         LINE#         126
+  C:00CDH         LINE#         133
+  C:00CFH         LINE#         134
+  C:00D0H         LINE#         135
+  C:00D1H         LINE#         136
+  C:00D3H         LINE#         185
+  C:00D6H         LINE#         196
+  -------         ENDMOD        ?C_STARTUP
+BL51 BANKED LINKER/LOCATER V6.22                                                      10/04/2010  21:49:39  PAGE 3
+
+
+
+  -------         MODULE        ?BANK?SWITCHING
+  C:0003H         SEGMENT       ?BANK?SELECT
+  C:0100H         SEGMENT       ?BANK?SWITCH
+  C:0003H         PUBLIC        ?B_BANK0
+  C:0015H         PUBLIC        ?B_BANK1
+  C:0027H         PUBLIC        ?B_BANK2
+  C:0039H         PUBLIC        ?B_BANK3
+  D:0090H         PUBLIC        ?B_CURRENTBANK
+  N:0004H         PUBLIC        ?B_FACTOR
+  N:000CH         PUBLIC        ?B_MASK
+  N:0000H         PUBLIC        ?B_MODE
+  N:0004H         PUBLIC        ?B_NBANKS
+  N:00FFH         PUBLIC        ?B_RST_BANK
+  C:0100H         PUBLIC        ?B_SWITCH0
+  C:0108H         PUBLIC        ?B_SWITCH1
+  C:0110H         PUBLIC        ?B_SWITCH2
+  C:0118H         PUBLIC        ?B_SWITCH3
+  C:004CH         PUBLIC        ?B_SWITCHBANK_A
+  C:004BH         PUBLIC        _SWITCHBANK
+  N:0000H         SYMBOL        ?BANK?SWITCHING
+  N:0002H         SYMBOL        ?B_FIRSTBIT
+  D:0090H         SYMBOL        ?B_PORT
+  N:0000H         SYMBOL        ?B_RTX
+  N:0000H         SYMBOL        ?B_VAR_BANKING
+  D:00E0H         SYMBOL        ACC
+  D:00F0H         SYMBOL        B
+  N:0000H         SYMBOL        BANK0
+  N:0004H         SYMBOL        BANK1
+  N:0008H         SYMBOL        BANK2
+  N:000CH         SYMBOL        BANK3
+  N:0004H         SYMBOL        CNT
+  D:0083H         SYMBOL        DPH
+  D:0082H         SYMBOL        DPL
+  B:00A8H.7       SYMBOL        EA
+  D:00A8H         SYMBOL        IE
+  N:0003H         SYMBOL        MASK
+  D:0090H         SYMBOL        P1
+  -------         ENDMOD        ?BANK?SWITCHING
+
+  -------         MODULE        MAIN
+  C:0000H         SYMBOL        _ICE_DUMMY_
+  D:00FFH         PUBLIC        WDTCN
+  D:0084H         PUBLIC        SFRPAGE
+  D:00A4H         PUBLIC        P0MDOUT
+  D:00A5H         PUBLIC        P1MDOUT
+  D:00A6H         PUBLIC        P2MDOUT
+  D:00A7H         PUBLIC        P3MDOUT
+  C:008AH         PUBLIC        _init
+  D:00E1H         PUBLIC        XBR0
+  D:00E2H         PUBLIC        XBR1
+  D:00E3H         PUBLIC        XBR2
+  C:00B4H         PUBLIC        main
+  D:008AH         PUBLIC        OSCICN
+  -------         PROC          _INIT
+  C:008AH         LINE#         8
+  C:008AH         LINE#         9
+BL51 BANKED LINKER/LOCATER V6.22                                                      10/04/2010  21:49:39  PAGE 4
+
+
+  C:008AH         LINE#         10
+  C:008DH         LINE#         11
+  C:0090H         LINE#         12
+  C:0093H         LINE#         13
+  C:0096H         LINE#         14
+  C:009BH         LINE#         15
+  C:009EH         LINE#         16
+  C:00A1H         LINE#         17
+  C:00A4H         LINE#         18
+  C:00A7H         LINE#         19
+  C:00AAH         LINE#         20
+  C:00ADH         LINE#         21
+  C:00B0H         LINE#         22
+  C:00B3H         LINE#         24
+  -------         ENDPROC       _INIT
+  -------         PROC          MAIN
+  C:00B4H         LINE#         27
+  C:00B4H         LINE#         28
+  C:00B4H         LINE#         29
+  C:00B7H         LINE#         30
+  C:00BEH         LINE#         31
+  C:00C5H         LINE#         32
+  C:00CCH         LINE#         33
+  -------         ENDPROC       MAIN
+  -------         ENDMOD        MAIN
+
+  -------         MODULE        FUNC
+  C:0000H         SYMBOL        _ICE_DUMMY_
+  D:00B0H         PUBLIC        P3
+  B:00B0H.0       PUBLIC        LED1
+ C1:011CH         PUBLIC        _function1
+
+  -------         PROC BANK=1   _FUNCTION1
+  X:0000H         SYMBOL        i
+ C1:011CH         LINE#         7
+ C1:0124H         LINE#         8
+ C1:0124H         LINE#         9
+ C1:013EH         LINE#         10
+ C1:013EH         LINE#         11
+ C1:013EH         LINE#         12
+ C1:0140H         LINE#         13
+ C1:0141H         LINE#         14
+ C1:0141H         LINE#         15
+ C1:0144H         LINE#         16
+ C1:0144H         LINE#         17
+ C1:0144H         LINE#         18
+ C1:0144H         LINE#         19
+  -------         ENDPROC       _FUNCTION1
+  -------         ENDMOD        FUNC
+
+  -------         MODULE        FUNC2
+  C:0000H         SYMBOL        _ICE_DUMMY_
+  D:00B0H         PUBLIC        P3
+  B:00B0H.1       PUBLIC        LED2
+ C2:00D9H         PUBLIC        function2
+
+  -------         PROC BANK=2   FUNCTION2
+BL51 BANKED LINKER/LOCATER V6.22                                                      10/04/2010  21:49:39  PAGE 5
+
+
+ C2:00D9H         LINE#         3
+ C2:00D9H         LINE#         4
+ C2:00D9H         LINE#         5
+ C2:00DBH         LINE#         6
+  -------         ENDPROC       FUNCTION2
+  -------         ENDMOD        FUNC2
+
+  -------         MODULE        ?C?ICASE
+  C:005DH         PUBLIC        ?C?ICASE
+  -------         ENDMOD        ?C?ICASE
+
+Program Size: data=9.0 xdata=2 code=289
+LINK/LOCATE RUN COMPLETE.  0 WARNING(S),  0 ERROR(S)

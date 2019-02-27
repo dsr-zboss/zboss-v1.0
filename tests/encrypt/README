@@ -1,0 +1,6 @@
+This is test for ZigBee encryption based on test vectors from ZigBee spec.
+Encryption routines are to be used at Linux-ns3 platform; use HW crypting
+on UZ2400.
+
+To run this test, launch ./crypt_test.
+When finished successfully, it prints "crypt_test finished OK" and exits with exit code 0.

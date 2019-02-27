@@ -1,0 +1,295 @@
+BL51 BANKED LINKER/LOCATER V6.22                                                        11/18/2010  13:43:46  PAGE 1
+
+
+BL51 BANKED LINKER/LOCATER V6.22, INVOKED BY:
+C:\KEIL\C51\BIN\BL51.EXE STARTUP.obj, .\L51_BANK.obj, main.obj TO zb_bi RAMSIZE (256) XDATA (0X0000-0X1FFF)
+
+
+MEMORY MODEL: LARGE
+
+
+INPUT MODULES INCLUDED:
+  STARTUP.obj (?C_STARTUP)
+  .\L51_BANK.obj (?BANK?SWITCHING)
+  main.obj (MAIN)
+  C:\KEIL\C51\LIB\C51L.LIB (?C?CLDOPTR)
+  C:\KEIL\C51\LIB\C51L.LIB (?C?CSTOPTR)
+
+
+LINK MAP OF MODULE:  zb_bi (?C_STARTUP)
+
+
+            TYPE    BASE      LENGTH    RELOCATION   SEGMENT NAME
+            -----------------------------------------------------
+
+            * * * * * * *   D A T A   M E M O R Y   * * * * * * *
+            REG     0000H     0008H     ABSOLUTE     "REG BANK 0"
+            DATA    0008H     0002H     UNIT         ?DT?MAIN
+            IDATA   000AH     0001H     UNIT         ?STACK
+
+            * * * * * * *  X D A T A   M E M O R Y  * * * * * * *
+            XDATA   0000H     0008H     UNIT         ?XD?MAIN?MAIN
+            XDATA   0008H     0005H     UNIT         ?XD?_ZB_WRITE_NVRAM?MAIN
+            XDATA   000DH     0005H     UNIT         ?XD?_ZB_READ_NVRAM?MAIN
+
+            * * * * * * *   C O D E   M E M O R Y   * * * * * * *
+            CODE    0000H     0003H     ABSOLUTE     
+            CODE    0003H     008AH     UNIT         ?PR?MAIN?MAIN
+            CODE    008DH     0063H     UNIT         ?PR?_ZB_WRITE_NVRAM?MAIN
+            CODE    00F0H     0057H     UNIT         ?PR?_ZB_READ_NVRAM?MAIN
+            CODE    0147H     0053H     UNIT         ?BANK?SELECT
+            CODE    019AH     004FH     UNIT         ?C?LIB_CODE
+            CODE    01E9H     002AH     UNIT         ?PR?_INIT?MAIN
+            CODE    0213H     001AH     UNIT         ?PR?ZB_ERASE_NVRAM?MAIN
+            CODE    022DH     000CH     UNIT         ?C_C51STARTUP
+            CODE    0239H     0001H     UNIT         ?PR?ZB_FLASH_INIT?MAIN
+                    023AH     00C6H                  *** GAP ***
+            CODE    0300H     001CH     PAGE         ?BANK?SWITCH
+
+
+
+OVERLAY MAP OF MODULE:   zb_bi (?C_STARTUP)
+
+
+SEGMENT
+  +--> CALLED SEGMENT
+---------------------
+?C_C51STARTUP
+  +--> ?PR?MAIN?MAIN
+
+?PR?MAIN?MAIN
+  +--> ?PR?_INIT?MAIN
+BL51 BANKED LINKER/LOCATER V6.22                                                      11/18/2010  13:43:46  PAGE 2
+
+
+  +--> ?PR?_ZB_READ_NVRAM?MAIN
+  +--> ?PR?ZB_FLASH_INIT?MAIN
+  +--> ?PR?ZB_ERASE_NVRAM?MAIN
+  +--> ?PR?_ZB_WRITE_NVRAM?MAIN
+
+
+
+SYMBOL TABLE OF MODULE:  zb_bi (?C_STARTUP)
+
+  VALUE           TYPE          NAME
+  ----------------------------------
+
+  -------         MODULE        ?C_STARTUP
+  C:022DH         SEGMENT       ?C_C51STARTUP
+  I:000AH         SEGMENT       ?STACK
+  C:0000H         PUBLIC        ?C_STARTUP
+  D:00E0H         SYMBOL        ACC
+  D:00F0H         SYMBOL        B
+  D:0083H         SYMBOL        DPH
+  D:0082H         SYMBOL        DPL
+  N:0000H         SYMBOL        IBPSTACK
+  N:0100H         SYMBOL        IBPSTACKTOP
+  N:0080H         SYMBOL        IDATALEN
+  C:0230H         SYMBOL        IDATALOOP
+  N:0000H         SYMBOL        PBPSTACK
+  N:0100H         SYMBOL        PBPSTACKTOP
+  N:0000H         SYMBOL        PDATALEN
+  N:0000H         SYMBOL        PDATASTART
+  N:0000H         SYMBOL        PPAGE
+  N:0000H         SYMBOL        PPAGEENABLE
+  D:00A0H         SYMBOL        PPAGE_SFR
+  D:0081H         SYMBOL        SP
+  C:022DH         SYMBOL        STARTUP1
+  N:0000H         SYMBOL        XBPSTACK
+  N:0000H         SYMBOL        XBPSTACKTOP
+  N:0000H         SYMBOL        XDATALEN
+  N:0000H         SYMBOL        XDATASTART
+  C:0000H         LINE#         126
+  C:022DH         LINE#         133
+  C:022FH         LINE#         134
+  C:0230H         LINE#         135
+  C:0231H         LINE#         136
+  C:0233H         LINE#         185
+  C:0236H         LINE#         196
+  -------         ENDMOD        ?C_STARTUP
+
+  -------         MODULE        ?BANK?SWITCHING
+  C:0147H         SEGMENT       ?BANK?SELECT
+  C:0300H         SEGMENT       ?BANK?SWITCH
+  C:0147H         PUBLIC        ?B_BANK0
+  C:015AH         PUBLIC        ?B_BANK1
+  C:016DH         PUBLIC        ?B_BANK2
+  C:0180H         PUBLIC        ?B_BANK3
+  D:00B1H         PUBLIC        ?B_CURRENTBANK
+  N:0001H         PUBLIC        ?B_FACTOR
+  N:0003H         PUBLIC        ?B_MASK
+  N:0000H         PUBLIC        ?B_MODE
+BL51 BANKED LINKER/LOCATER V6.22                                                      11/18/2010  13:43:46  PAGE 3
+
+
+  N:0004H         PUBLIC        ?B_NBANKS
+  N:00FFH         PUBLIC        ?B_RST_BANK
+  C:0300H         PUBLIC        ?B_SWITCH0
+  C:0308H         PUBLIC        ?B_SWITCH1
+  C:0310H         PUBLIC        ?B_SWITCH2
+  C:0318H         PUBLIC        ?B_SWITCH3
+  C:0194H         PUBLIC        ?B_SWITCHBANK_A
+  C:0193H         PUBLIC        _SWITCHBANK
+  N:0000H         SYMBOL        ?BANK?SWITCHING
+  N:0000H         SYMBOL        ?B_FIRSTBIT
+  D:00B1H         SYMBOL        ?B_PORT
+  N:0000H         SYMBOL        ?B_RTX
+  N:0000H         SYMBOL        ?B_VAR_BANKING
+  D:00E0H         SYMBOL        ACC
+  D:00F0H         SYMBOL        B
+  N:0000H         SYMBOL        BANK0
+  N:0001H         SYMBOL        BANK1
+  N:0002H         SYMBOL        BANK2
+  N:0003H         SYMBOL        BANK3
+  N:0004H         SYMBOL        CNT
+  D:0083H         SYMBOL        DPH
+  D:0082H         SYMBOL        DPL
+  B:00A8H.7       SYMBOL        EA
+  D:00A8H         SYMBOL        IE
+  N:0003H         SYMBOL        MASK
+  D:00B1H         SYMBOL        P1
+  -------         ENDMOD        ?BANK?SWITCHING
+
+  -------         MODULE        MAIN
+  C:0000H         SYMBOL        _ICE_DUMMY_
+  D:00FFH         PUBLIC        WDTCN
+  D:00B0H         PUBLIC        P3
+  B:00B0H.0       PUBLIC        LED1
+  B:00B0H.1       PUBLIC        LED2
+  D:008FH         PUBLIC        PSCTL
+  D:0084H         PUBLIC        SFRPAGE
+  D:00A4H         PUBLIC        P0MDOUT
+  D:00A5H         PUBLIC        P1MDOUT
+  D:00A6H         PUBLIC        P2MDOUT
+  D:00A7H         PUBLIC        P3MDOUT
+  C:01E9H         PUBLIC        _init
+  D:00E1H         PUBLIC        XBR0
+  D:00E2H         PUBLIC        XBR1
+  D:00E3H         PUBLIC        XBR2
+  C:0003H         PUBLIC        main
+  D:008AH         PUBLIC        OSCICN
+  C:0213H         PUBLIC        zb_erase_nvram
+  C:00F0H         PUBLIC        _zb_read_nvram
+  C:0239H         PUBLIC        zb_flash_init
+  C:008DH         PUBLIC        _zb_write_nvram
+  D:00B7H         PUBLIC        FLSCL
+  -------         PROC          _INIT
+  C:01E9H         LINE#         10
+  C:01E9H         LINE#         11
+  C:01E9H         LINE#         12
+  C:01ECH         LINE#         13
+  C:01EFH         LINE#         14
+BL51 BANKED LINKER/LOCATER V6.22                                                      11/18/2010  13:43:46  PAGE 4
+
+
+  C:01F2H         LINE#         15
+  C:01F5H         LINE#         16
+  C:01FAH         LINE#         17
+  C:01FDH         LINE#         18
+  C:0200H         LINE#         19
+  C:0203H         LINE#         20
+  C:0206H         LINE#         21
+  C:0209H         LINE#         22
+  C:020CH         LINE#         23
+  C:020FH         LINE#         24
+  C:0212H         LINE#         26
+  -------         ENDPROC       _INIT
+  -------         PROC          ZB_FLASH_INIT
+  C:0239H         LINE#         29
+  C:0239H         LINE#         30
+  C:0239H         LINE#         34
+  -------         ENDPROC       ZB_FLASH_INIT
+  -------         PROC          ZB_ERASE_NVRAM
+  C:0213H         LINE#         51
+  C:0213H         LINE#         52
+  C:0213H         LINE#         54
+  C:0216H         LINE#         55
+  C:0219H         LINE#         56
+  C:021CH         LINE#         60
+  C:0221H         LINE#         62
+  C:0226H         LINE#         63
+  C:0229H         LINE#         64
+  C:022CH         LINE#         65
+  -------         ENDPROC       ZB_ERASE_NVRAM
+  -------         PROC          _ZB_WRITE_NVRAM
+  X:0008H         SYMBOL        pos
+  X:0009H         SYMBOL        buf
+  X:000CH         SYMBOL        len
+  -------         DO            
+  D:0008H         SYMBOL        i
+  -------         ENDDO         
+  C:008DH         LINE#         83
+  C:009DH         LINE#         84
+  C:009DH         LINE#         86
+  C:00A0H         LINE#         87
+  C:00A3H         LINE#         88
+  C:00A6H         LINE#         90
+  C:00B4H         LINE#         91
+  C:00B4H         LINE#         92
+  C:00E5H         LINE#         93
+  C:00E9H         LINE#         95
+  C:00ECH         LINE#         96
+  C:00EFH         LINE#         97
+  -------         ENDPROC       _ZB_WRITE_NVRAM
+  -------         PROC          _ZB_READ_NVRAM
+  X:000DH         SYMBOL        pos
+  X:000EH         SYMBOL        buf
+  X:0011H         SYMBOL        len
+  -------         DO            
+  D:0009H         SYMBOL        i
+  -------         ENDDO         
+  C:00F0H         LINE#         99
+BL51 BANKED LINKER/LOCATER V6.22                                                      11/18/2010  13:43:46  PAGE 5
+
+
+  C:0100H         LINE#         100
+  C:0100H         LINE#         102
+  C:0103H         LINE#         103
+  C:0111H         LINE#         104
+  C:0111H         LINE#         105
+  C:013FH         LINE#         106
+  C:0143H         LINE#         107
+  C:0146H         LINE#         109
+  -------         ENDPROC       _ZB_READ_NVRAM
+  -------         PROC          MAIN
+  -------         DO            
+  X:0000H         SYMBOL        i
+  X:0002H         SYMBOL        test
+  -------         ENDDO         
+  C:0003H         LINE#         122
+  C:0003H         LINE#         123
+  C:0003H         LINE#         124
+  C:000BH         LINE#         128
+  C:000EH         LINE#         129
+  C:0011H         LINE#         130
+  C:0014H         LINE#         131
+  C:0025H         LINE#         132
+  C:004FH         LINE#         133
+  C:004FH         LINE#         134
+  C:0051H         LINE#         135
+  C:0053H         LINE#         137
+  C:0053H         LINE#         138
+  C:005CH         LINE#         139
+  C:0065H         LINE#         140
+  C:006EH         LINE#         142
+  C:0071H         LINE#         143
+  C:0074H         LINE#         144
+  C:0085H         LINE#         145
+  C:0087H         LINE#         146
+  C:0087H         LINE#         148
+  C:0087H         LINE#         149
+  C:008AH         LINE#         150
+  C:008CH         LINE#         152
+  -------         ENDPROC       MAIN
+  -------         ENDMOD        MAIN
+
+  -------         MODULE        ?C?CLDOPTR
+  C:019AH         PUBLIC        ?C?CLDOPTR
+  -------         ENDMOD        ?C?CLDOPTR
+
+  -------         MODULE        ?C?CSTOPTR
+  C:01C7H         PUBLIC        ?C?CSTOPTR
+  -------         ENDMOD        ?C?CSTOPTR
+
+Program Size: data=11.0 xdata=18 code=598
+LINK/LOCATE RUN COMPLETE.  0 WARNING(S),  0 ERROR(S)

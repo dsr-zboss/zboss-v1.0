@@ -1,0 +1,221 @@
+<html>
+<body>
+<pre>
+<h1>µVision Build Log</h1>
+<h2>Project:</h2>
+D:\_devel\_tmp\zb_banked_issue\zb_bi.uvproj
+Project File Date:  11/17/2010
+
+<h2>Output:</h2>
+Build target 'Target 1'
+compiling main.c...
+MAIN.C(61): error C141: syntax error near 'pos', expected ')'
+MAIN.C(63): error C141: syntax error near 'data'
+MAIN.C(63): error C202: 'i': undefined identifier
+MAIN.C(68): error C202: 'i': undefined identifier
+MAIN.C(70): error C202: 'pos': undefined identifier
+MAIN.C(77): error C141: syntax error near 'pos', expected ')'
+MAIN.C(79): error C141: syntax error near 'data'
+MAIN.C(79): error C202: 'i': undefined identifier
+MAIN.C(81): error C202: 'i': undefined identifier
+MAIN.C(83): error C202: 'i': undefined identifier
+Target not created
+Build target 'Target 1'
+compiling main.c...
+MAIN.C(99): warning C206: '_init': missing function-prototype
+MAIN.C(102): warning C206: 'read_nvram': missing function-prototype
+MAIN.C(102): error C267: 'read_nvram': requires ANSI-style prototype
+Target not created
+Build target 'Target 1'
+compiling main.c...
+MAIN.C(121): warning C206: 'read_nvram': missing function-prototype
+MAIN.C(121): error C267: 'read_nvram': requires ANSI-style prototype
+Target not created
+Build target 'Target 1'
+compiling main.c...
+MAIN.C(121): warning C206: 'read_nvram': missing function-prototype
+MAIN.C(121): error C267: 'read_nvram': requires ANSI-style prototype
+Target not created
+Build target 'Target 1'
+compiling main.c...
+MAIN.C(121): error C141: syntax error near ')'
+Target not created
+Build target 'Target 1'
+compiling main.c...
+MAIN.C(129): warning C209: '_zb_write_nvram': too few actual parameters
+MAIN.C(134): warning C206: 'read_nvram': missing function-prototype
+MAIN.C(134): error C267: 'read_nvram': requires ANSI-style prototype
+Target not created
+Build target 'Target 1'
+compiling main.c...
+MAIN.C(120): error C129: missing ';' before 'void'
+Target not created
+Build target 'Target 1'
+compiling main.c...
+MAIN.C(127): error C141: syntax error near 'zb_uint8_t'
+MAIN.C(127): error C202: 'buf': undefined identifier
+Target not created
+Build target 'Target 1'
+compiling main.c...
+MAIN.C(141): warning C209: '_zb_write_nvram': too few actual parameters
+MAIN.C(146): warning C206: 'read_nvram': missing function-prototype
+MAIN.C(146): error C267: 'read_nvram': requires ANSI-style prototype
+Target not created
+Build target 'Target 1'
+compiling main.c...
+MAIN.C(141): warning C209: '_zb_write_nvram': too few actual parameters
+MAIN.C(146): warning C206: 'read_nvram': missing function-prototype
+MAIN.C(146): error C267: 'read_nvram': requires ANSI-style prototype
+Target not created
+Build target 'Target 1'
+compiling main.c...
+MAIN.C(130): error C181: incompatible operand
+Target not created
+Build target 'Target 1'
+compiling main.c...
+MAIN.C(130): error C181: incompatible operand
+Target not created
+Build target 'Target 1'
+compiling main.c...
+MAIN.C(130): warning C182: pointer to different objects
+MAIN.C(143): warning C182: pointer to different objects
+MAIN.C(148): warning C206: 'read_nvram': missing function-prototype
+MAIN.C(148): error C267: 'read_nvram': requires ANSI-style prototype
+Target not created
+Build target 'Target 1'
+compiling main.c...
+MAIN.C(143): warning C182: pointer to different objects
+MAIN.C(148): warning C206: 'read_nvram': missing function-prototype
+MAIN.C(148): error C267: 'read_nvram': requires ANSI-style prototype
+Target not created
+Build target 'Target 1'
+compiling main.c...
+MAIN.C(148): warning C206: 'read_nvram': missing function-prototype
+MAIN.C(148): error C267: 'read_nvram': requires ANSI-style prototype
+Target not created
+Build target 'Target 1'
+compiling main.c...
+MAIN.C(148): error C193: '=': illegal type conversion from/to 'void'
+Target not created
+Build target 'Target 1'
+compiling main.c...
+MAIN.C(124): warning C280: 'buf': unreferenced local variable
+linking...
+*** WARNING L5: CODE SPACE MEMORY OVERLAP
+    FROM:    0000H
+    TO:      0002H
+Program Size: data=13.0 xdata=21 code=759
+"zb_bi" - 0 Error(s), 2 Warning(s).
+Load "D:\\_devel\\_tmp\\zb_banked_issue\\zb_bi" 
+Flash Erase Done.
+Flash Image Update Complete. 
+Beginning programming...
+Flash Program Done: 752 bytes programmed.
+Checksum:0x7578
+Flash Verify Done: 752 bytes verified.
+Build target 'Target 1'
+compiling main.c...
+MAIN.C(60): error C141: syntax error near '['
+MAIN.C(60): error C141: syntax error near ']'
+MAIN.C(62): error C141: syntax error near '['
+MAIN.C(62): error C141: syntax error near ']'
+Target not created
+Build target 'Target 1'
+compiling main.c...
+MAIN.C(60): error C141: syntax error near '['
+MAIN.C(60): error C141: syntax error near ']'
+MAIN.C(62): error C141: syntax error near '['
+Target not created
+Build target 'Target 1'
+compiling main.c...
+MAIN.C(60): error C141: syntax error near '['
+MAIN.C(60): error C141: syntax error near ']'
+MAIN.C(62): error C141: syntax error near '['
+MAIN.C(62): error C141: syntax error near ']'
+Target not created
+Build target 'Target 1'
+compiling main.c...
+MAIN.C(62): error C141: syntax error near '['
+MAIN.C(62): error C141: syntax error near ']'
+Target not created
+Build target 'Target 1'
+compiling main.c...
+MAIN.C(126): warning C280: 'buf': unreferenced local variable
+linking...
+*** WARNING L5: CODE SPACE MEMORY OVERLAP
+    FROM:    0000H
+    TO:      0002H
+Program Size: data=13.0 xdata=21 code=737
+"zb_bi" - 0 Error(s), 2 Warning(s).
+Build target 'Target 1'
+compiling main.c...
+MAIN.C(129): warning C280: 'buf': unreferenced local variable
+linking...
+*** WARNING L5: CODE SPACE MEMORY OVERLAP
+    FROM:    0000H
+    TO:      0002H
+Program Size: data=13.0 xdata=21 code=737
+"zb_bi" - 0 Error(s), 2 Warning(s).
+Build target 'Target 1'
+compiling main.c...
+MAIN.C(129): warning C280: 'buf': unreferenced local variable
+linking...
+*** WARNING L5: CODE SPACE MEMORY OVERLAP
+    FROM:    0000H
+    TO:      0002H
+Program Size: data=13.0 xdata=21 code=737
+"zb_bi" - 0 Error(s), 2 Warning(s).
+Build target 'Target 1'
+compiling main.c...
+MAIN.C(129): warning C280: 'buf': unreferenced local variable
+linking...
+*** WARNING L5: CODE SPACE MEMORY OVERLAP
+    FROM:    0000H
+    TO:      0002H
+Program Size: data=13.0 xdata=21 code=732
+"zb_bi" - 0 Error(s), 2 Warning(s).
+Build target 'Target 1'
+compiling main.c...
+linking...
+*** WARNING L5: CODE SPACE MEMORY OVERLAP
+    FROM:    0000H
+    TO:      0002H
+Program Size: data=13.0 xdata=18 code=732
+"zb_bi" - 0 Error(s), 1 Warning(s).
+Build target 'Target 1'
+compiling main.c...
+linking...
+Program Size: data=11.0 xdata=18 code=598
+"zb_bi" - 0 Error(s), 0 Warning(s).
+Load "D:\\_devel\\_tmp\\zb_banked_issue\\zb_bi" 
+Flash Erase Done.
+Flash Image Update Complete. 
+Beginning programming...
+Flash Program Done: 592 bytes programmed.
+Checksum:0x224d
+Flash Verify Done: 592 bytes verified.
+Build target 'Target 1'
+linking...
+Program Size: data=11.0 xdata=18 code=598
+"zb_bi" - 0 Error(s), 0 Warning(s).
+Load "D:\\_devel\\_tmp\\zb_banked_issue\\zb_bi" 
+Flash Erase Done.
+Flash Image Update Complete. 
+Beginning programming...
+Flash Program Done: 592 bytes programmed.
+Checksum:0x224d
+Flash Verify Done: 592 bytes verified.
+Build target 'Target 1'
+compiling main.c...
+MAIN.C(62): error C141: syntax error near 's'
+MAIN.C(62): error C202: 's': undefined identifier
+Target not created
+Build target 'Target 1'
+compiling main.c...
+MAIN.C(62): error C216: subscript on non-array or too many dimensions
+Target not created
+Build target 'Target 1'
+compiling main.c...
+linking...
+Program Size: data=11.0 xdata=18 code=598
+"zb_bi" - 0 Error(s), 0 Warning(s).
