@@ -217,7 +217,7 @@ void zb_zdo_data_indication(zb_uint8_t param) ZB_CALLBACK
   } else    
 #endif              
 #ifndef ZB_LIMITED_FEATURES
-  if ((ind->clusterid == ZDO_NODE_DESC_REQ_CLID)&&(ind->clusterid == ZDO_POWER_DESC_REQ_CLID))  
+  if ((ind->clusterid == ZDO_NODE_DESC_REQ_CLID)||(ind->clusterid == ZDO_POWER_DESC_REQ_CLID))
   {
       zdo_send_desc_resp(param);
   } else if (ind->clusterid == ZDO_SIMPLE_DESC_REQ_CLID)
